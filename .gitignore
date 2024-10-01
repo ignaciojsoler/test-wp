@@ -1,11 +1,39 @@
-# Ignorar WordPress core files
-/app/public/wp-admin/
-/app/public/wp-includes/
-/app/public/wp-config.php
-/app/public/index.php
+# Ignorar todos los archivos raíz excepto docker-compose.yml
+/*
+!.gitignore
+!docker-compose.yml
 
-# Ignorar caché, backups y logs
-app/public/wp-content/cache/
-app/public/wp-content/upgrade/
-app/public/wp-content/uploads/backups/
-app/public/wp-content/debug.log
+# Ignorar todo en wp-content excepto themes y plugins
+wp-content/*
+!wp-content/themes/
+!wp-content/plugins/
+
+# Ignorar archivos dentro de themes y plugins que no sean necesarios
+wp-content/themes/*/node_modules/
+wp-content/themes/*/dist/
+wp-content/plugins/*/node_modules/
+wp-content/plugins/*/dist/
+
+# Ignorar el core de WordPress y demás archivos generados
+wordpress/
+db_data/
+
+# Ignorar configuraciones locales
+.env
+.env.local
+.env.production
+.env.testing
+
+# Ignorar archivos de logs y temporales
+*.log
+*.tmp
+*.cache
+*.sql
+*.sql.gz
+*.zip
+*.tar
+*.tar.gz
+
+# Ignorar archivos del sistema
+.DS_Store
+Thumbs.db
